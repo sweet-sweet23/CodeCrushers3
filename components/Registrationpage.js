@@ -3,8 +3,7 @@ import * as React from "react";
 import { View, text, Image, StyleSheet, Text } from "react-native";
 import { Button } from "react-native-paper";
 import { TextInput } from "react-native-paper";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 
 import logo from "../assets/CC logo.png";
 
@@ -12,10 +11,9 @@ function Registrationpage(props) {
 
   const [showPassword, setShowPassword] = React.useState(false);
   console.log(props);
-
   return (
     <View
-      style={{flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: "#C27BA0F",}}
+      style={{flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: "#E0EEE0",}}
     >
       <Image source={logo} style={styles.Logo} />
       <Text style={styles.Createaccbtn}>Create an Account</Text>
@@ -57,6 +55,7 @@ function Registrationpage(props) {
       >
         Register
       </Button>
+      
     </View>
   );
 }

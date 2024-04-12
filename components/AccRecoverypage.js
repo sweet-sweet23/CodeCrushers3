@@ -1,27 +1,22 @@
-//AccRecoverypage.js
 import * as React from "react";
-import { View, text, Image, StyleSheet, Text } from "react-native";
-import { Button } from "react-native-paper";
-import { TextInput } from "react-native-paper";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
+import { View, Image, StyleSheet, Text } from "react-native";
+import { Button, TextInput } from "react-native-paper";
 import logo from "../assets/CC logo.png";
 
 function AccRecoverypage(props) {
-  console.log(props);
-  
+  const [email, setEmail] = React.useState('');
+
   return (
     <View
-      style={{flex: 1, alignItems: "center", justifyContent: "center",backgroundColor: "#C27BA0F",}}
+      style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: "#E0EEE0" }}
     >
       <Image source={logo} style={styles.Logo} />
-      <Text style={styles.Putbtn}>Reset Password</Text>
+      <Text style={styles.Putbtn}>Reset Password</Text> {}
       <TextInput
         style={styles.Passwordn1btn}
         label="Email Address"
-        value={text}
-        onChangeText={(text) => setText(text)}
+        value={email}
+        onChangeText={(text) => setEmail(text)}
       />
       <Button
         style={styles.Resetbtn}
@@ -49,7 +44,7 @@ const styles = StyleSheet.create({
   Resetbtn: {
     width: "80%",
     marginTop: 10,
-    backgroundColor: "#ebc8b0",
+    backgroundColor: "#A0522D",
   },
   Logo: {
     height: 250,
@@ -67,7 +62,7 @@ const styles = StyleSheet.create({
     textAlign: "right",
   },
   Putbtn: {
-    color: "black",
+    color: "#8C6A5D",
     fontSize: 24,
     fontWeight: "900",
   },

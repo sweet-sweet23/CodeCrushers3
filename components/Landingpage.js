@@ -1,56 +1,84 @@
-//Landingpage.js
-import * as React from "react";
+import React, { useState } from "react";
 import { View, Image, StyleSheet, Text } from "react-native";
-import { Button } from "react-native-paper";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
+import { Button, TextInput } from "react-native-paper";
 import logo from "../assets/CC logo.png";
 
-function Landingpage(props) {
-  console.log(props);
+function Registrationpage(props) {
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <View
-      style={{flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: "#C27BA0F",}}
-    >
-      <Image source={logo} style={styles.Logo} />
-      <Text style={styles.message}>Welcome to CodeCrushers!</Text>
-      <Text style={styles.userMessage}> Let every click unveil a world of possibilities, shaping minds and igniting passions. Welcome to a realm where curiosity knows no bounds.</Text> {}
+    <View style={styles.container}>
+      <Image source={logo} style={styles.logo} />
+      <Text style={styles.createAccountText}>Create an Account</Text>
+
+      <TextInput
+        style={styles.inputField}
+        label="Username"
+        value={username}
+        onChangeText={(text) => setUsername(text)}
+      />
+      <TextInput
+        style={styles.inputField}
+        label="Email"
+        value={email}
+        onChangeText={(text) => setEmail(text)}
+      />
+      <TextInput
+        style={styles.inputField}
+        label="Password"
+        placeholder="Password"
+        secureTextEntry={!showPassword}
+        right={
+          <TextInput.Icon
+            name={showPassword ? 'eye-off' : 'eye'}
+            onPress={() => setShowPassword(!showPassword)}
+          />
+        }
+        value={password}
+        onChangeText={(text) => setPassword(text)}
+      />
+
       <Button
-        style={styles.Logout}
+        style={styles.registerButton}
         icon="login"
         mode="contained"
         onPress={() => props.navigation.navigate("Login")}
       >
-        Logout
+        Register
       </Button>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  Logo: {
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#E0EEE0",
+  },
+  logo: {
     height: 250,
     width: 250,
   },
-  message: {
+  createAccountText: {
+    color: "black",
     fontSize: 24,
-    fontWeight: "bold",
-    color: "black",
-    marginBottom: 10,
-  },
-  userMessage: {
-    fontSize: 16,
-    color: "black",
+    fontWeight: "900",
     marginBottom: 20,
-    textAlign: "center",
   },
-  Logout: {
-    width: "50%",
+  inputField: {
+    marginBottom: 15,
+    width: 250,
+  },
+  registerButton: {
     marginTop: 20,
+    width: "50%",
     backgroundColor: "#ebc8b0",
   },
 });
 
-export default Landingpage;
+export default Registrationpage;
